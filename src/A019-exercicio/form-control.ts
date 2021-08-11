@@ -7,10 +7,19 @@ const password = document.querySelector('.password') as HTMLInputElement
 const password2 = document.querySelector('.password2') as HTMLInputElement
 
 form.addEventListener('submit', function (event: Event) {
+
   event.preventDefault()
 
+  hideErrorMessages(this)
 
+  checkForEmptyFields(username, email, password, password2)
 })
+
+function checkForEmptyFields(...inputs: HTMLInputElement[]): void {
+  inputs.forEach((input) => {
+    if(!input.value) showErrorMessage(input, 'Campo Obrigatório!')
+  })
+}
 
 function hideErrorMessages(form: HTMLFormElement): void{
   form.querySelectorAll('.' + SHOW_ERROR_MESSAGES)
