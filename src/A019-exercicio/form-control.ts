@@ -12,6 +12,11 @@ form.addEventListener('submit', function (event: Event) {
 
 })
 
+function hideErrorMessages(form: HTMLFormElement): void{
+  form.querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+  .forEach((item) => item.classList.remove(SHOW_ERROR_MESSAGES))
+}
+
 function showErrorMessage(input: HTMLInputElement, msg: string): void {
 
   const formFields = input.parentElement as HTMLDivElement //Buscando o elemento pai, ou seja a div com form-field
