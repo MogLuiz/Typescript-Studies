@@ -25,11 +25,8 @@ form.addEventListener('submit', function (event) {
     hideErrorMessages(this);
     checkForEmptyFields(username, email, password, password2);
     checkEmail(email);
+    checkEqualsPasswords(password, password2);
 });
-function checkEmail(input) {
-    if (!isEmail_1.default(input.value))
-        showErrorMessage(input, 'Email inválido');
-}
 function checkForEmptyFields() {
     var inputs = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -39,6 +36,16 @@ function checkForEmptyFields() {
         if (!input.value)
             showErrorMessage(input, 'Campo Obrigatório!');
     });
+}
+function checkEmail(input) {
+    if (!isEmail_1.default(input.value))
+        showErrorMessage(input, 'Email inválido');
+}
+function checkEqualsPasswords(password, password2) {
+    if (password.value !== password2.value) {
+        showErrorMessage(password, 'A senha precisa ser igual');
+        showErrorMessage(password2, 'A senha precisa ser igual');
+    }
 }
 function hideErrorMessages(form) {
     form.querySelectorAll('.' + SHOW_ERROR_MESSAGES)

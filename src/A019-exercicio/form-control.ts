@@ -17,11 +17,10 @@ form.addEventListener('submit', function (event: Event) {
   checkForEmptyFields(username, email, password, password2)
 
   checkEmail(email)
+
+  checkEqualsPasswords(password, password2)
 })
 
-function checkEmail(input: HTMLInputElement): void {
-  if(!isEmail(input.value)) showErrorMessage(input, 'Email inválido')
-}
 
 function checkForEmptyFields(...inputs: HTMLInputElement[]): void {
   inputs.forEach((input) => {
@@ -29,7 +28,20 @@ function checkForEmptyFields(...inputs: HTMLInputElement[]): void {
   })
 }
 
-function hideErrorMessages(form: HTMLFormElement): void{
+function checkEmail(input: HTMLInputElement): void {
+  if(!isEmail(input.value)) showErrorMessage(input, 'Email inválido')
+}
+
+
+function checkEqualsPasswords(password: HTMLInputElement, password2: HTMLInputElement): void {
+  if (password.value !== password2.value) {
+    showErrorMessage(password, 'A senha precisa ser igual')
+    showErrorMessage(password2, 'A senha precisa ser igual')
+  }
+}
+
+
+function hideErrorMessages(form: HTMLFormElement): void {
   form.querySelectorAll('.' + SHOW_ERROR_MESSAGES)
   .forEach((item) => item.classList.remove(SHOW_ERROR_MESSAGES))
 }
