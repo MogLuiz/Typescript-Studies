@@ -1,7 +1,7 @@
 const SHOW_ERROR_MESSAGES = 'show-error-message'
 
-const form = document.querySelector('.form')
-const username = document.querySelector('.username')
-const email = document.querySelector('.email')
-const password = document.querySelector('.password')
-const password2 = document.querySelector('.password2')
+const form = document.querySelector('.form') as HTMLFormElement
+const username = document.querySelector('.username') as HTMLInputElement
+const email = document.querySelector('.email') as HTMLInputElement
+const password = document.querySelector('.password') as HTMLInputElement
+const password2 = document.querySelector('.password2') as HTMLInputElement
