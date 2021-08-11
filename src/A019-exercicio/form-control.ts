@@ -19,6 +19,8 @@ form.addEventListener('submit', function (event: Event) {
   checkEmail(email)
 
   checkEqualsPasswords(password, password2)
+
+  if (shouldSendForm(this)) console.log('Formulário enviado'));
 })
 
 
@@ -56,5 +58,15 @@ function showErrorMessage(input: HTMLInputElement, msg: string): void {
 
   formFields.classList.add(SHOW_ERROR_MESSAGES)
 
+}
+
+
+function shouldSendForm(form: HTMLFormElement): boolean {
+  let send = true
+
+  form.querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+  .forEach(() => (send = false))
+
+  return send
 }
 
