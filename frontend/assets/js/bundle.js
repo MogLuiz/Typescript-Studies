@@ -9,6 +9,12 @@
 /***/ (() => {
 
 
+var SHOW_ERROR_MESSAGES = 'show-error-message';
+var form = document.querySelector('.form');
+var username = document.querySelector('.username');
+var email = document.querySelector('.email');
+var password = document.querySelector('.password');
+var password2 = document.querySelector('.password2');
 
 
 /***/ })
