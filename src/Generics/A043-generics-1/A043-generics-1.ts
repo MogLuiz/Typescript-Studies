@@ -5,7 +5,7 @@ type FilterCallback = (
   array?: unknown[]
   ) => boolean
 
-export function meuFilter(array: unknown[], callbackfn: FilterCallback): unknown {
+export function meuFilter<T>(array: T[], callbackfn: FilterCallback): T[] {
   const novoArray = []
 
   for (let i = 0; i < array.length; i++) {
@@ -22,3 +22,11 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 const arrayFiltradoOriginal = array.filter((value) => value < 5)
 console.log(arrayFiltradoOriginal)
+
+const arrayFiltrado = meuFilter(array, (value) => {
+  if (typeof value === 'number') return value < 5
+  return false
+})
+console.log(arrayFiltradoOriginal)
+
+
