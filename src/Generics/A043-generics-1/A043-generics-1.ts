@@ -1,8 +1,8 @@
 
-type FilterCallback = (
-  value: unknown,
+type FilterCallback<U> = (
+  value: U,
   index?: number,
-  array?: unknown[]
+  array?: U[]
   ) => boolean
 
 export function meuFilter<T>(array: T[], callbackfn: FilterCallback): T[] {
