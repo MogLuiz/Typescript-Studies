@@ -9,4 +9,4 @@ const animal = {
 }
 
 const vacinas = obterChave(animal, 'cor')
-const vacinas = obterChave(animal, 'vacinas')
+const vacinas1 = obterChave(animal, 'vacinas')
