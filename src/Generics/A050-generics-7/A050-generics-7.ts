@@ -13,12 +13,16 @@ type PessoaProtocol = {
 
 // Required
 
-type PessoaRequired = Required<PessoaProtocol> // Type Required transforma tudo que é opcional em obrigatório
+type PessoaRequired = Required<PessoaProtocol> // Type Required -> transforma tudo que é opcional em obrigatório
 
 
 // Required
 
-type PessoaPartial = Partial<PessoaRequired> // Partial - transforma tudo que é obrigatório em opcional
+type PessoaPartial = Partial<PessoaRequired> // Partial -> transforma tudo que é obrigatório em opcional
+
+// Readonly
+
+type PessoaReadonly = Readonly<PessoaPartial> // Readonly -> Transforma tudo em readonly, ou seja, não pode ser modificado
 
 const objeto2: PessoaRequired = {
   nome: 'Luiz',
