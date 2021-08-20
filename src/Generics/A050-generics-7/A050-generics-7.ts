@@ -15,6 +15,11 @@ type PessoaProtocol = {
 
 type PessoaRequired = Required<PessoaProtocol> // Type Required transforma tudo que é opcional em obrigatório
 
+
+// Required
+
+type PessoaPartial = Partial<PessoaRequired> // Partial - transforma tudo que é obrigatório em opcional
+
 const objeto2: PessoaRequired = {
   nome: 'Luiz',
   sobrenome: 'Henrique',
