@@ -19,3 +19,4 @@ export function soma<T>(...args: T[]): number {
 console.log(soma(10,30,50,10))
 
 console.log(soma(...[1, 'a', 123123, 'b']))
+
