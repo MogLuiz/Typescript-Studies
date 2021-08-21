@@ -27,11 +27,19 @@ type PessoaReadonly = Readonly<PessoaPartial> // Readonly -> Transforma tudo em 
 
 type PessoaPick = Pick<PessoaRequired, 'nome' | 'sobrenome'> // Pick -> Permite escolher quais coisas quero usar dentro do objeto
 
-const objeto2: PessoaRequired = {
+// Passando uma chave apenas como Readonly
+
+type PassaPraReadonly = Pick<PessoaProtocol, Exclude<keyof PessoaProtocol, 'nome'>> & {
+  readonly nome: string;
+}
+
+
+const objeto2: PassaPraReadonly = {
   nome: 'Luiz',
   sobrenome: 'Henrique',
   idade: 30,
 }
+
 
 
 
