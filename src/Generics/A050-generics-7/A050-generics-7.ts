@@ -34,3 +34,12 @@ const objeto2: PessoaRequired = {
 }
 
 
+
+// Extract e Exclude
+
+type ABC = 'A' | 'B' | 'C'
+type CDE = 'C' | 'D' | 'E'
+
+type TipoExclude = Exclude<ABC, CDE> // Exclude -> Computa tudo que está em ABC que não está em CDE. Vai excluir os tipos que estão repetidos
+
+type TipoExtract = Extract<ABC, CDE> // Extract -> Computa os tipos repetidos.
