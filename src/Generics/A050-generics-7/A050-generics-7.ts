@@ -29,7 +29,7 @@ type PessoaPick = Pick<PessoaRequired, 'nome' | 'sobrenome'> // Pick -> Permite 
 
 // Passando uma chave apenas como Readonly
 
-type PassaPraReadonly = Pick<PessoaProtocol, Exclude<keyof PessoaProtocol, 'nome'>> & {
+type PassaPraReadonly = Pick<PessoaProtocol, Exclude<keyof PessoaProtocol, 'nome'>> & { // Excluindo a chave nome e depois adicionando ela como Readonly
   readonly nome: string;
 }
 
@@ -59,10 +59,14 @@ type AccountMongo = {
   idade: number;
 }
 
-type AccountApi = {
+// type AccountApi = {
+//   id: string;
+//   nome: string;
+//   idade: number;
+// }
+
+type AccountApi = Pick<AccountMongo, Exclude<keyof AccountMongo, '_id'>> & {
   id: string;
-  nome: string;
-  idade: number;
 }
 
 const accountMongo: AccountMongo = {
