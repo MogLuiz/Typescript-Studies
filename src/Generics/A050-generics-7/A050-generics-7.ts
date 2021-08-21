@@ -43,3 +43,31 @@ type CDE = 'C' | 'D' | 'E'
 type TipoExclude = Exclude<ABC, CDE> // Exclude -> Computa tudo que está em ABC que não está em CDE. Vai excluir os tipos que estão repetidos
 
 type TipoExtract = Extract<ABC, CDE> // Extract -> Computa os tipos repetidos.
+
+//
+type AccountMongo = {
+  _id: string;
+  nome: string;
+  idade: number;
+}
+
+type AccountApi = {
+  id: string;
+  nome: string;
+  idade: number;
+}
+
+const accountMongo: AccountMongo = {
+  _id: 'asdf8sdf7d',
+  nome: 'Luiz',
+  idade: 30,
+}
+
+function mapAccount(accountMongo: AccountMongo): AccountApi {
+  const { _id, ...accountData } = accountMongo
+
+  return { ...accountData, id: _id }
+}
+
+const accountApi = mapAccount(accountMongo)
+console.log(accountApi)
